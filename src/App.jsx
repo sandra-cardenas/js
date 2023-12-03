@@ -1,21 +1,15 @@
-import "./App.css"
-function App() {
-  const condition = true;
-  if (condition) {
-    console.log("Hello world");
-        
-   } else{
-    console.log("Hello none");
-   }
+import NavBarComponent from "./components/navBarComponent/navBarComponent"
+import ItemListContainer from "./components/ItemListContainer/ItemListContainer";
+
+import 'bootstrap/dist/css/bootstrap.min.css';
+const App = () =>{
+
     return (
-    <div>
-      {condition ? <h1> Verdadero</h1> : <h1> Falso</h1>}
-      <h1> Hello World</h1>
-      <h1> prueba 1
-      </h1>
-      <p> Mi primera aplicacion React</p>
-    </div>
-    );
+    <div style={ {width: '100vw', height: '100vh', backgroundColor:'#F1F0E8'}}>
+        <NavBarComponent />
+        <ItemListContainer greeting="PRODUCTOS DISPONIBLES"/>
+      
+          </div>            
+        );
 }
  export default App;
- 
