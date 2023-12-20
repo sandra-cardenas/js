@@ -1,15 +1,18 @@
-import NavBarComponent from "./components/navBarComponent/navBarComponent"
-import ItemListContainer from "./components/ItemListContainer/ItemListContainer";
 
 import 'bootstrap/dist/css/bootstrap.min.css';
-const App = () =>{
+import { MainRouter } from "./router/MainRouter";
 
+
+
+const App = () =>{
+  
     return (
-    <div style={ {width: '100vw', height: '100vh', backgroundColor:'#F1F0E8'}}>
-        <NavBarComponent />
-        <ItemListContainer greeting="PRODUCTOS DISPONIBLES"/>
-      
-          </div>            
+    <div style={ {width: '100vw', height: 'auto', backgroundColor:'#F1F0E8'}}>
+       
+        <MainRouter/>
+        
+    </div>             
         );
-}
+}  
  export default App;
+ 

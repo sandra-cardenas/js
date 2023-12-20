@@ -4,31 +4,33 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import CartWidget from '../CartWidget/CartWidget';
+import { Link } from 'react-router-dom';
+import {useCategory} from '../../hooks/useCategory';
+
 
 const NavBarComponent = () =>{
-
+  const {category}= useCategory ()
     return(
         
         <Navbar collapseOnSelect expand="lg"  style={{backgroundColor:'#ADC4CE'}} >
         <Container> 
-          <img style={{width:'30px', margin: '10px'}} src='../imagenes/agenda.png'></img>
+          <img style={{width:'30px', margin: '10px'}} src='../imagenes/logo.png'></img>
 
-          <Navbar.Brand href="#home"><em><strong> AGENDAS AZULBLUE </strong>  </em> </Navbar.Brand>
+          <Link  style={{textDecoration:'none', color:'black'}}to="/"><em><strong> Mi primera tienda </strong>  </em> </Link>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">
-              <Nav.Link href="#features">Conócenos</Nav.Link>
+              <Nav.Link href="/">Inicio</Nav.Link>
               <Nav.Link href="#pricing">Actividades</Nav.Link>
-              <NavDropdown title="Nuestros Productos" id="collapsible-nav-dropdown">
-                <NavDropdown.Item href="#action/3.1">Agendas</NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.2">
-                  Planners
-                </NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.3">Calendarios</NavDropdown.Item>
-                <NavDropdown.Divider />
-                <NavDropdown.Item href="#action/3.4">
-                Otros
-                </NavDropdown.Item>
+              <NavDropdown  title="Categorias" id="collapsible-nav-dropdown" >
+                {
+                  category.map((item, index )=>{
+                    return <NavDropdown.Item key={index} href="" > 
+                    <Link style={{textDecoration:'none', color:'black', textTransform:'capitalize'}}to={`/category/${item}`}> {item}</Link>
+                    </NavDropdown.Item>
+                  
+                  })
+                }
               </NavDropdown>
             </Nav>
             <Nav>
