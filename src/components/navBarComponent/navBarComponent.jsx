@@ -8,8 +8,10 @@ import { Link } from 'react-router-dom';
 import {useCategory} from '../../hooks/useCategory';
 
 
+
 const NavBarComponent = () =>{
   const {category}= useCategory ()
+  
     return(
         
         <Navbar collapseOnSelect expand="lg"  style={{backgroundColor:'#ADC4CE'}} >
@@ -20,8 +22,8 @@ const NavBarComponent = () =>{
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">
-              <Nav.Link href="/">Inicio</Nav.Link>
-              <Nav.Link href="#pricing">Actividades</Nav.Link>
+            
+              <Nav.Link href="#pricing">Nosotros</Nav.Link>
               <NavDropdown  title="Categorias" id="collapsible-nav-dropdown" >
                 {
                   category.map((item, index )=>{

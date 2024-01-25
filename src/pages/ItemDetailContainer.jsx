@@ -1,8 +1,8 @@
 
 import Card from 'react-bootstrap/Card';
-import { Button } from 'react-bootstrap';
 import { useGetProductById } from '../hooks/useProducts';
 import { useParams } from 'react-router-dom';
+import ItemCount from '../components/ItemCount/ItemCount';
 
 
 export const ItemDetailContainer = () => {
@@ -11,10 +11,11 @@ export const ItemDetailContainer = () => {
 
 
 
-  const {productData}=useGetProductById(id)
+  const {productData}=useGetProductById("products", id)
    
   return (
-    <Card  key ={productData.id} style={{ width: '17rem', margin:'15px',  overflow:'hidden',height:'80vh'}}>
+    <div style={{display:'flex', alignItems:'center',justifyContent: 'center',alignItems:'flex-star', backgroundColor:'#D5DBDB',height:'100vh'}} >
+    <Card  key ={productData.id} style={{height:'400px', width: '15rem', margin:'15px',  overflow:'hidden', border:'3px solid #D6DBDF '}}>
     <Card.Img variant="top" src={productData.thumbnail}/>
     <Card.Body>
       <Card.Title>{productData.title}</Card.Title>
@@ -22,9 +23,11 @@ export const ItemDetailContainer = () => {
         {productData.description}
         
       </Card.Text>
-      <div> {productData.price}</div>
-      <Button variant="primary">Añadir al carrito</Button>
+      <div style={{ display:'flex',color:'black', justifyContent:'center',alignItems:'center', fontWeight:'bold', fontSize:'20px'}}>S/. {productData.price}</div>
+      <ItemCount productId ={productData.id} />
+      {/* <Button variant="primary" style={{margin: '10px'}}>Añadir al carrito</Button> */}
     </Card.Body>
   </Card>
+  </div>
   )
 } 

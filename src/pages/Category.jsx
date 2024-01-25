@@ -5,11 +5,7 @@ import { useGetProductByCategory } from '../hooks/useProducts'
 export const Category = () => {
     const {id} = useParams()
     const {productsData} = useGetProductByCategory(id)
-
-
-
-     
-  return (
-    <ItemListContainer productsData={productsData} />
-  )
-}
+ 
+  return <ItemListContainer productsData={productsData} />
+  
+};

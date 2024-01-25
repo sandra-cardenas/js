@@ -3,6 +3,7 @@ import { Home } from "../pages/Home"
 import NavBarComponent from "../components/navBarComponent/navBarComponent"
 import { ItemDetailContainer } from "../pages/ItemDetailContainer"
 import { Category } from "../pages/Category"
+import { Cart } from "../pages/Cart"
 
 export const  MainRouter = () => {
   return (
@@ -14,6 +15,7 @@ export const  MainRouter = () => {
         <Route path='/item/:id' element={<ItemDetailContainer/>}/>
 
         <Route path='/category/:id' element={<Category/>}/>
+        <Route path='/cart' element={<Cart/>}/> 
 
     </Routes>
 
